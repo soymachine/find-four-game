@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Find Four Game"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="./js/lib/anime.min.js"></script>  
+    <script type="module" src="./js/index.js" defer></script>
+    <title>Find Four Game</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div class="game-holder">
+      <div class="game-view">
+        <!-- GAME VIEW-->
+        <img id="game-symbol" src="/assets/logo/symbol.png">
+        <img id="logo" src="/assets/logo/full@1x.png">
+        <div class="holes-mask">          
+          <img id="holes-mask-img" src="/assets/game/mask.png">
+        </div>
+        <div id="game-buttons">
+          <a href="#" class="column-button" id="column-1-button"></a>
+          <a href="#" class="column-button" id="column-2-button"></a>
+          <a href="#" class="column-button" id="column-3-button"></a>
+          <a href="#" class="column-button" id="column-4-button"></a>
+          <a href="#" class="column-button" id="column-5-button"></a>
+          <a href="#" class="column-button" id="column-6-button"></a>
+          <a href="#" class="column-button" id="column-7-button"></a>
+        </div>
+        <div id="column-indicator"><img src="/assets/icon/keyboard_arrow_down_black_24dp@2x.png"></div>
+        <div id="grid">
+          <!--<div class="playing-piece playing-piece-red">-->
+        </div>
+        <div id="game-result-view">
+          <div id="win-player">Player 1 win!</div>
+          <div id="player-score"></div>
+        </div>
+      </div>
+      <div class="ui-holder">
+        <!-- START UI-->
+        <div id="start-view" class="ui-view">
+          <a id="start-button" class="ui-button" href="#">
+            <div>Start</div>
+            <div>
+              <img class="ui-button-icon" src="/assets/icon/play_circle_black_24dp@2x.png">
+              </div>
+          </a>
+        </div>
+        <!-- CHOOSE GAME TYPE UI-->
+        <div id="type-view" class="ui-view">
+          <a id="player-vs-player-button" class="ui-button" href="#">
+            <div>
+              <img class="ui-button-icon" src="/assets/icon/face_black_24dp@2x.png">
+            </div>
+            <div>Vs</div>
+            <div>
+              <img class="ui-button-icon" src="/assets/icon/face_black_24dp@2x.png">
+            </div>
+          </a>
+          <a id="player-vs-computer-button" class="ui-button" href="#">
+            <div>
+              <img class="ui-button-icon" src="/assets/icon/face_black_24dp@2x.png">
+            </div>
+            <div>Vs</div>
+            <div>
+              <img class="ui-button-icon" src="/assets/icon/smart_toy_black_24dp@2x.png">
+            </div>
+          </a>
+        </div>
+        <!-- GAMEPLAY UI-->
+        <div id="gameloop-view" class="ui-view">
+          <div id="player-type">
+            <div id="player-circle"></div>
+          </div>
+          <div id="play-info">
+            <div id="player-turn-name">Player 1 Turn</div>
+            <div class="score">Score <span id="score-label">100</span></div>
+          </div>
+          <div id="extra-ui">
+            <a id="restart-button" class="ui-button" href="#">
+              <div>
+                <img class="ui-button-icon" src="/assets/icon/restart_alt_black_24dp@2x.png">
+              </div>
+            </a>
+            <a id="exit-button" class="ui-button" href="#">
+              <div>
+                <img class="ui-button-icon" src="/assets/icon/close_black_24dp@2x.png">
+              </div>
+            </a>
+            <a id="home-button" class="ui-button" href="#">
+              <div>
+                <img class="ui-button-icon" src="/assets/icon/home_black_24dp@2x.png">
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      
+    </div>
+  </body>
+</html>

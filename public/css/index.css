@@ -1,0 +1,411 @@
+/* ------------------- */
+/* Custom properties   */
+/* ------------------- */
+
+:root {
+
+    /* colors */
+    --color-1: #fcfcea;
+    --color-2: #f6f9c8;
+    --color-3: #f3f494;
+    --color-4: #ede957;
+    --color-5: #e5d81c;
+    --color-6: #d7c31b;
+    --color-7: #b99a15;
+    --color-8: #947114;
+    --color-9: #7b5918;
+    --color-10: #694a1a;
+    --color-11: #3d280b;
+    
+    /* font-sizes */
+    --fs-900: clamp(5rem, 8vw + 1rem, 9.375rem);
+    --fs-800: 3.5rem;
+    --fs-700: 1.5rem;
+    --fs-600: 1rem;
+    --fs-500: 1.75rem;
+    --fs-400: 0.9375rem;
+    --fs-300: 1rem;
+    --fs-200: 0.875rem;
+
+    --color-player-a-active: #F38181;
+    --color-player-a-winner: #D62828;
+    --color-player-b-active: #FCE38A;
+    --color-player-b-winner: #FCBF49;
+
+    
+    
+    /* font-families */
+    --ff-sans-normal: "Inter", sans-serif;
+
+    padding: 0;
+    color: white; 
+}
+
+@media (min-width: 35em) {
+    :root {
+        --fs-800: 5rem;
+        --fs-700: 2.5rem;
+        --fs-600: 1.5rem;
+        --fs-400: 1rem;
+    }
+}
+
+@media (min-width: 45em) {
+    :root {
+        /* font-sizes */
+        --fs-800: 6.25rem;
+        --fs-700: 3.5rem;
+        --fs-600: 2rem;
+        --fs-400: 1.125rem;
+    }
+}
+
+
+/* ------------------- */
+/* Reset               */
+/* ------------------- */
+
+/* https://piccalil.li/blog/a-modern-css-reset/ */
+
+/* Box sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reset margins */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+picture {
+    margin: 0; 
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    font-weight: 400;
+}
+
+/* ------------------- */
+/* Compontents         */
+/* ------------------- */
+.test {
+    border:1px solid red;
+}
+
+/* typography */
+
+.ff-serif { font-family: var(--ff-serif); } 
+.ff-sans-cond { font-family: var(--ff-sans-cond); } 
+.ff-sans-normal { font-family: var(--ff-sans-normal); } 
+
+.letter-spacing-1 { letter-spacing: 4.75px; } 
+.letter-spacing-2 { letter-spacing: 2.7px; } 
+.letter-spacing-3 { letter-spacing: 2.35px; } 
+
+.uppercase { text-transform: uppercase; }
+
+.fs-900 { font-size: var(--fs-900); }
+.fs-800 { font-size: var(--fs-800); }
+.fs-700 { font-size: var(--fs-700); }
+.fs-600 { font-size: var(--fs-600); }
+.fs-500 { font-size: var(--fs-500); }
+.fs-400 { font-size: var(--fs-400); }
+.fs-300 { font-size: var(--fs-300); }
+.fs-200 { font-size: var(--fs-200); }
+
+.fs-900,
+.fs-800,
+.fs-700,
+.fs-600 {
+    line-height: 1.1;
+}
+
+
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, #17EAD9 0%, #6078EA 100%);
+    display:grid;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    font-size: var(--fs-500);
+    font-family: var(--ff-sans-normal);
+}
+
+/* GAME */
+.game-holder {
+    width: 687px;
+    height: 720px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    background: #FFF;
+    box-shadow: 0px -10px 30px 0px rgba(23, 234, 217, 0.08), 0px 10px 40px 0px rgba(96, 120, 234, 0.00);
+    display: flex;
+    flex-direction: column;
+    
+}
+.game-view {
+    position: relative; 
+    background-color: #FAFAFA;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+}
+
+#logo {
+    position:absolute;
+    left:217px;
+    top:207px;
+    z-index: 400;
+}
+
+#grid {
+    position:absolute;
+    left:0px;
+    top:0px;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.holes-mask {
+    position: relative;
+    z-index: 10;
+    height: 592px;
+}
+
+.playing-piece {
+    position:absolute;
+    top:0px;
+    left:0px;
+    width: 64px;
+    height: 64px;
+    border-radius:50%;
+    transition: background-color .75s linear;
+}
+
+.playing-piece-red-active {
+    background-color: var(--color-player-a-active);
+}
+
+.playing-piece-red-winner {
+    background-color: var(--color-player-a-winner);
+}
+
+.playing-piece-yellow-active {
+    background-color: var(--color-player-b-active);
+}
+
+.playing-piece-yellow-winner {
+    background-color: var(--color-player-b-winner);
+}
+
+/* Game Buttons */
+#game-buttons {
+    position: absolute;
+    z-index: 600;
+    top: 0px;
+}
+.column-button {
+    position: absolute;
+    width: 64px;
+    height: 590px;
+    
+}
+
+#column-1-button {
+    left:23px;
+}
+
+#column-2-button {
+    left:118px;
+}
+
+#column-3-button {
+    left:213px;
+}
+
+#column-4-button {
+    left:311px;
+}
+
+#column-5-button {
+    left:407px;
+}
+
+#column-6-button {
+    left:502px;
+}
+
+#column-7-button {
+    left:599px;
+}
+
+#column-indicator{
+    position:absolute;
+    top:-40px;
+    left:10px;
+    z-index: 650;
+}
+
+
+/* UI */
+.ui-holder {
+    height: 125px;
+    position: relative;
+    display: grid;
+    overflow: hidden;
+    grid-template-columns: 687px 687px 687px;
+}
+
+.ui-view {
+    width: 687px;
+}
+
+#start-view, #type-view {
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    align-self: center;
+}
+
+.ui-button {
+    height: 76px;
+    border-radius: 38px;
+    background: #0097E6;
+    padding: 20px;
+    text-decoration: none;
+    color:white;
+    display: flex;
+    gap:11px;
+    flex-direction: initial;
+    transition: all .35s ease-out;
+}
+
+.ui-button:hover {
+    border-radius: 38px;
+    background: #00A8FF;
+    box-shadow: 0px 2px 8px 0px #00A8FF;
+}
+
+.ui-button:active  {
+    background: #0075B3;
+    box-shadow: none;
+}
+
+.ui-button-icon {
+    width: 36px;
+    height: 36px;
+}
+
+#exit-button {
+    position:relative;
+    left:0px; /* a 110 que es hide */
+}
+
+#home-button {
+    position:absolute;
+    left:585px;
+    top:130px; /* a 26 que es show */
+}
+
+#gameloop-view {
+    display: grid;
+    grid-template-columns: min-content 2fr min-content;
+}
+
+#gameloop-view > div {
+    /*border:1px solid red;*/
+}
+
+#player-type {
+    margin:26px 20px 10px 23px;
+}
+
+#player-circle {
+    width: 36px;
+    height: 36px;
+    border-radius:50%;
+}
+
+.circle-player_a {
+    background-color:var(--color-player-a-active);
+}
+
+.circle-player_b {
+    background-color:var(--color-player-b-active);
+}
+
+#play-info {
+    color:#0097E6;
+    font-size:var(--fs-500);
+    margin-top:26px;
+}
+
+.score {
+    font-size:var(--fs-400);
+    margin-top:16px;
+}
+
+#extra-ui {
+    display: flex;
+    gap: 24px;
+    margin:26px 26px 10px 23px;
+}
+
+#game-symbol {
+    position: absolute;
+    top: -120px;
+    left: 310px;
+}
+
+/* GAME VIEW RESULT */
+#game-result-view{
+    position: absolute;
+    left: 123px;
+    top: 103px;
+    z-index: 1100;
+    width: 444.461px;
+    height: 383px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #17EAD9 0%, #6078EA 100%);
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.50);
+    padding: 115px 30px 65px 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap:25px;
+}
+
+#win-player {
+    font-size:var(--fs-700);
+}
+
+#player-score {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    align-self: center;
+}
+
+.player-score-a {
+    background-color: var(--color-player-a-winner);
+}
+
+.player-score-b {
+    background-color: var(--color-player-b-winner);
+}
